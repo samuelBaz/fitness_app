@@ -4,9 +4,13 @@ import 'package:flutter/material.dart';
 class TextFieldFit extends StatefulWidget {
   final String hintText;
   final String prefixIconString;
+  final String suffixIconString;
 
   const TextFieldFit(
-      {super.key, required this.hintText, required this.prefixIconString});
+      {super.key,
+      required this.hintText,
+      required this.prefixIconString,
+      this.suffixIconString = ""});
 
   @override
   State<TextFieldFit> createState() => _TextFieldFitState();
@@ -33,7 +37,9 @@ class _TextFieldFitState extends State<TextFieldFit> {
               fontWeight: FontWeight.w400,
             ),
             prefixIcon: Image.asset(widget.prefixIconString),
-            suffixIcon: Image.asset('assets/icons/hide_password.png'),
+            suffixIcon: widget.suffixIconString != ''
+                ? Image.asset(widget.suffixIconString)
+                : null,
             border: InputBorder.none),
       ),
     );

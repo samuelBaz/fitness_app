@@ -1,3 +1,4 @@
+import 'package:fitness_app/app_routes.dart';
 import 'package:fitness_app/utils/constants.dart';
 import 'package:fitness_app/widgets/button_fit.dart';
 import 'package:flutter/cupertino.dart';
@@ -48,7 +49,11 @@ class _SplashScreenState extends State<SplashScreen> {
                           color: Constants.grayColor)),
                 ],
               )),
-          ButtonFit()
+          ButtonFit(
+            text: "Get Started",
+            onPressed: () =>
+                {Navigator.pushNamed(context, AppRoutes.onboardingScreen)},
+          )
         ],
       ),
     ));

@@ -2,6 +2,16 @@ import 'package:fitness_app/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class ButtonFit extends StatefulWidget {
+  final String text;
+  final bool primary;
+  final VoidCallback onPressed;
+
+  const ButtonFit(
+      {super.key,
+      required this.text,
+      this.primary = false,
+      required this.onPressed});
+
   @override
   State<ButtonFit> createState() => _ButtonFitState();
 }
@@ -10,13 +20,12 @@ class _ButtonFitState extends State<ButtonFit> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => {Navigator.pushNamed(context, AppRoutes.onboardingScreen)},
+      onTap: widget.onPressed,
       child: Container(
           height: 60,
           width: double.infinity,
           margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
           decoration: ShapeDecoration(
-            color: Colors.white,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(99),
             ),
@@ -28,11 +37,19 @@ class _ButtonFitState extends State<ButtonFit> {
                 spreadRadius: 0,
               )
             ],
+            gradient: LinearGradient(
+              begin: Alignment(-1.00, 0.08),
+              end: Alignment(1, -0.08),
+              colors: widget.primary
+                  ? [Color(0xFF92A3FD), Color(0xFF9DCEFF)]
+                  : [Colors.white, Colors.white],
+            ),
           ),
-          child: const Center(
+          child: Center(
             child: Text(
-              "Get Started",
+              widget.text,
               style: TextStyle(
+                  color: widget.primary ? Colors.white : Colors.black,
                   fontFamily: 'Poppins',
                   fontSize: 16,
                   fontWeight: FontWeight.w900),
