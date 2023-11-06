@@ -5,12 +5,16 @@ class ButtonFit extends StatefulWidget {
   final String text;
   final bool primary;
   final VoidCallback onPressed;
+  final String prefixIconString;
+  final Widget? suffixIcon;
 
   const ButtonFit(
       {super.key,
       required this.text,
       this.primary = false,
-      required this.onPressed});
+      required this.onPressed,
+      this.prefixIconString = "",
+      this.suffixIcon = null});
 
   @override
   State<ButtonFit> createState() => _ButtonFitState();
@@ -46,15 +50,26 @@ class _ButtonFitState extends State<ButtonFit> {
             ),
           ),
           child: Center(
-            child: Text(
-              widget.text,
-              style: TextStyle(
-                  color: widget.primary ? Colors.white : Colors.black,
-                  fontFamily: 'Poppins',
-                  fontSize: 16,
-                  fontWeight: FontWeight.w900),
-            ),
-          )),
+              child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              widget.prefixIconString == ""
+                  ? const SizedBox()
+                  : Container(
+                      margin: EdgeInsets.only(right: 8),
+                      child: Image.asset(widget.prefixIconString),
+                    ),
+              Text(
+                widget.text,
+                style: TextStyle(
+                    color: widget.primary ? Colors.white : Colors.black,
+                    fontFamily: 'Poppins',
+                    fontSize: 16,
+                    fontWeight: FontWeight.w900),
+              ),
+              widget.suffixIcon == null ? const SizedBox() : widget.suffixIcon!
+            ],
+          ))),
     );
   }
 }

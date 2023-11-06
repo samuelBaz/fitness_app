@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         AppRoutes.login: (context) => LoginScreen(),
         AppRoutes.completeProfile: (context) => CompleteProfileScreen()
       },
-      initialRoute: AppRoutes.splashScreen,
+      initialRoute: AppRoutes.signUp,
     );
   }
 }
