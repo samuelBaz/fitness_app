@@ -59,13 +59,17 @@ class _ButtonFitState extends State<ButtonFit> {
                       margin: EdgeInsets.only(right: 8),
                       child: Image.asset(widget.prefixIconString),
                     ),
-              Text(
-                widget.text,
-                style: TextStyle(
-                    color: widget.primary ? Colors.white : Colors.black,
-                    fontFamily: 'Poppins',
-                    fontSize: 16,
-                    fontWeight: FontWeight.w900),
+              Container(
+                child: Text(
+                  widget.text,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                      color: widget.primary ? Colors.white : Colors.black,
+                      fontFamily: 'Poppins',
+                      fontSize: 16,
+                      fontWeight: FontWeight.w900),
+                ),
               ),
               widget.suffixIcon == null ? const SizedBox() : widget.suffixIcon!
             ],

@@ -49,33 +49,36 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ],
                     )),
                 Expanded(
-                  flex: 5,
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 30),
-                    color: Colors.white,
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(titles[position - 1],
-                              style: const TextStyle(
-                                color: Color(0xFF1D1517),
-                                fontSize: 25,
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w900,
-                              )),
-                          const SizedBox(height: 16),
-                          Text(
-                            descriptions[position - 1],
-                            style: const TextStyle(
-                              color: Color(0xFF7B6F72),
-                              fontSize: 14,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                        ]),
-                  ),
-                )
+                    flex: 5,
+                    child: ListView(
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 30),
+                          color: Colors.white,
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(titles[position - 1],
+                                    style: const TextStyle(
+                                      color: Color(0xFF1D1517),
+                                      fontSize: 25,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w900,
+                                    )),
+                                const SizedBox(height: 16),
+                                Text(
+                                  descriptions[position - 1],
+                                  style: const TextStyle(
+                                    color: Color(0xFF7B6F72),
+                                    fontSize: 14,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ]),
+                        ),
+                      ],
+                    ))
               ],
             )),
         floatingActionButton: GestureDetector(
