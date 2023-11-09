@@ -94,10 +94,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     text: "Login",
                     primary: true,
                     prefixIconString: 'assets/icons/login.png',
-                    onPressed: () => {
-                          Navigator.pushNamed(
-                              context, AppRoutes.completeProfile)
-                        }),
+                    onPressed: () =>
+                        {Navigator.pushNamed(context, AppRoutes.wellcome)}),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 30),
                   child: Flex(

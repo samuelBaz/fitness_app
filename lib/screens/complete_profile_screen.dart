@@ -1,3 +1,4 @@
+import 'package:fitness_app/app_routes.dart';
 import 'package:fitness_app/utils/constants.dart';
 import 'package:fitness_app/widgets/button_fit.dart';
 import 'package:fitness_app/widgets/text_field_fit.dart';
@@ -151,7 +152,8 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                 ),
                 ButtonFit(
                   text: "Next",
-                  onPressed: () => {},
+                  onPressed: () =>
+                      {Navigator.pushNamed(context, AppRoutes.goals)},
                   primary: true,
                   suffixIcon: const Icon(
                     Icons.chevron_right,

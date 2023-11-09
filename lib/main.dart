@@ -1,9 +1,11 @@
 import 'package:fitness_app/app_routes.dart';
 import 'package:fitness_app/screens/complete_profile_screen.dart';
+import 'package:fitness_app/screens/goals_screen.dart';
 import 'package:fitness_app/screens/login_screen.dart';
 import 'package:fitness_app/screens/onboarding_screen.dart';
 import 'package:fitness_app/screens/sign_up_screen.dart';
 import 'package:fitness_app/screens/splash_screen.dart';
+import 'package:fitness_app/screens/wellcome_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -27,7 +29,9 @@ class MyApp extends StatelessWidget {
         AppRoutes.onboardingScreen: (context) => OnboardingScreen(),
         AppRoutes.signUp: (context) => SignUpScreen(),
         AppRoutes.login: (context) => LoginScreen(),
-        AppRoutes.completeProfile: (context) => CompleteProfileScreen()
+        AppRoutes.completeProfile: (context) => CompleteProfileScreen(),
+        AppRoutes.goals: (context) => GoalsScreen(),
+        AppRoutes.wellcome: (context) => WellcomeScreen()
       },
       initialRoute: AppRoutes.signUp,
     );

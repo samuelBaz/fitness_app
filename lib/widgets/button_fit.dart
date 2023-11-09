@@ -23,10 +23,14 @@ class ButtonFit extends StatefulWidget {
 class _ButtonFitState extends State<ButtonFit> {
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: widget.onPressed,
       child: Container(
-          height: 60,
+          height: MediaQuery.of(context).textScaleFactor > 1.0
+              ? 80
+              : MediaQuery.of(context).textScaleFactor < 1.0
+                  ? 40
+                  : 60,
           width: double.infinity,
           margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
           decoration: ShapeDecoration(
@@ -59,17 +63,15 @@ class _ButtonFitState extends State<ButtonFit> {
                       margin: EdgeInsets.only(right: 8),
                       child: Image.asset(widget.prefixIconString),
                     ),
-              Container(
-                child: Text(
-                  widget.text,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                      color: widget.primary ? Colors.white : Colors.black,
-                      fontFamily: 'Poppins',
-                      fontSize: 16,
-                      fontWeight: FontWeight.w900),
-                ),
+              Text(
+                widget.text,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                    color: widget.primary ? Colors.white : Colors.black,
+                    fontFamily: 'Poppins',
+                    fontSize: 16,
+                    fontWeight: FontWeight.w900),
               ),
               widget.suffixIcon == null ? const SizedBox() : widget.suffixIcon!
             ],
