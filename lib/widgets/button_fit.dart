@@ -1,4 +1,5 @@
 import 'package:fitness_app/app_routes.dart';
+import 'package:fitness_app/utils/text_scaler_parser.dart';
 import 'package:flutter/material.dart';
 
 class ButtonFit extends StatefulWidget {
@@ -23,12 +24,15 @@ class ButtonFit extends StatefulWidget {
 class _ButtonFitState extends State<ButtonFit> {
   @override
   Widget build(BuildContext context) {
+    TextScaler textScaler = MediaQuery.textScalerOf(context);
+    double textScalerParsed = TextScalerParser.parser(textScaler);
+
     return GestureDetector(
       onTap: widget.onPressed,
       child: Container(
-          height: MediaQuery.of(context).textScaleFactor > 1.0
+          height: textScalerParsed > 1.0
               ? 80
-              : MediaQuery.of(context).textScaleFactor < 1.0
+              : textScalerParsed < 1.0
                   ? 40
                   : 60,
           width: double.infinity,

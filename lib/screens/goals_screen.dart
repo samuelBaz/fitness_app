@@ -1,3 +1,4 @@
+import 'package:fitness_app/app_routes.dart';
 import 'package:fitness_app/widgets/button_fit.dart';
 import 'package:fitness_app/widgets/slide_fit.dart';
 import 'package:flutter/material.dart';
@@ -83,8 +84,10 @@ class _GoalsScreenState extends State<GoalsScreen> {
               text: "Confirm",
               primary: true,
               onPressed: () => {
-                    if (this._currentPage < 3)
+                    if (_currentPage < 2)
                       {this.changePage(_currentPage + 1)}
+                    else
+                      {Navigator.pushNamed(context, AppRoutes.wellcome)}
                   })
         ],
       )),

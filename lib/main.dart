@@ -1,5 +1,6 @@
 import 'package:fitness_app/app_routes.dart';
 import 'package:fitness_app/screens/complete_profile_screen.dart';
+import 'package:fitness_app/screens/dashboard_screen.dart';
 import 'package:fitness_app/screens/goals_screen.dart';
 import 'package:fitness_app/screens/login_screen.dart';
 import 'package:fitness_app/screens/onboarding_screen.dart';
@@ -31,9 +32,10 @@ class MyApp extends StatelessWidget {
         AppRoutes.login: (context) => LoginScreen(),
         AppRoutes.completeProfile: (context) => CompleteProfileScreen(),
         AppRoutes.goals: (context) => GoalsScreen(),
-        AppRoutes.wellcome: (context) => WellcomeScreen()
+        AppRoutes.wellcome: (context) => WellcomeScreen(),
+        AppRoutes.dashboard: (context) => DashboardScreen()
       },
-      initialRoute: AppRoutes.signUp,
+      initialRoute: AppRoutes.wellcome,
     );
   }
 }
