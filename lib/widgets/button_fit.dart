@@ -24,8 +24,8 @@ class ButtonFit extends StatefulWidget {
 class _ButtonFitState extends State<ButtonFit> {
   @override
   Widget build(BuildContext context) {
-    TextScaler textScaler = MediaQuery.textScalerOf(context);
-    double textScalerParsed = TextScalerParser.parser(textScaler);
+    // TextScaler textScaler = MediaQuery.textScalerOf(context);
+    double textScalerParsed = MediaQuery.textScaleFactorOf(context);
 
     return GestureDetector(
       onTap: widget.onPressed,

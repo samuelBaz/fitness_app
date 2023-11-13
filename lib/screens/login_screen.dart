@@ -32,10 +32,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 8,
                       ),
                       Text("Here there,",
-                          textScaler: MediaQuery.of(context).textScaler ==
-                                  TextScaler.noScaling
-                              ? TextScaler.noScaling
-                              : TextScaler.linear(1.5),
+                          textScaleFactor: MediaQuery.of(context).textScaleFactor == 1.0
+                              ? 1.0
+                              : 1.5,
                           style: const TextStyle(
                             color: Color(0xFF1D1517),
                             fontSize: 16,
