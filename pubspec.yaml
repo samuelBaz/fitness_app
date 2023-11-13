@@ -38,6 +38,7 @@ dependencies:
   dashed_circular_progress_bar: ^0.0.6
   flutter_svg: ^2.0.9
   persistent_bottom_nav_bar: ^5.0.2
+  badges: ^3.1.2
 
 dev_dependencies:
   flutter_test:

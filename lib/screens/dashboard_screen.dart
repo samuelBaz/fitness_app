@@ -1,4 +1,9 @@
+import 'package:fitness_app/screens/activity_tracker_screen.dart';
+import 'package:fitness_app/screens/home_screen.dart';
+import 'package:fitness_app/screens/profile_screen.dart';
+import 'package:fitness_app/screens/progress_photo_screen.dart';
 import 'package:fitness_app/utils/constants.dart';
+import 'package:fitness_app/widgets/dot_fit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -17,25 +22,36 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   List<Widget> _buildScreens() {
     return [
-      Text("Pagina 1"),
-      Text("Pagina 2"),
+      const HomeScreen(),
+      const ActivityTrackerScreen(),
       Text("Pagina 3"),
-      Text("Pagina 4"),
-      Text("Pagina 5"),
+      const ProgressPhotoScreen(),
+      const ProfileScreen()
     ];
   }
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
-          icon: SvgPicture.asset("assets/icons/Home.svg"),
+          icon: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset("assets/icons/Home_Active.svg"),
+              const DotFit()
+            ],
+          ),
           inactiveIcon: SvgPicture.asset(
             "assets/icons/Home.svg",
-            color: Constants.borderColor,
           )),
       PersistentBottomNavBarItem(
-        icon: SvgPicture.asset("assets/icons/Activity.svg",
-            color: Constants.colorActive),
+        icon: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset("assets/icons/Activity.svg",
+                color: Constants.colorActive),
+            const DotFit()
+          ],
+        ),
         inactiveIcon: SvgPicture.asset(
           "assets/icons/Activity.svg",
           color: Constants.borderColor,
@@ -49,19 +65,30 @@ class _DashboardScreenState extends State<DashboardScreen> {
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
-        icon: SvgPicture.asset("assets/icons/Camera.svg",
-            color: Constants.colorActive),
+        icon: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset("assets/icons/Camera.svg",
+                color: Constants.colorActive),
+            const DotFit()
+          ],
+        ),
         inactiveIcon: SvgPicture.asset(
           "assets/icons/Camera.svg",
           color: Constants.borderColor,
         ),
       ),
       PersistentBottomNavBarItem(
-        icon: SvgPicture.asset("assets/icons/Profile.svg",
-            color: Constants.colorActive),
+        icon: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset("assets/icons/Profile_Active.svg",
+                color: Constants.colorActive),
+            const DotFit()
+          ],
+        ),
         inactiveIcon: SvgPicture.asset(
           "assets/icons/Profile.svg",
-          color: Constants.borderColor,
         ),
       ),
     ];
@@ -84,17 +111,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
       hideNavigationBarWhenKeyboardShows:
           true, // Recommended to set 'resizeToAvoidBottomInset' as true while using this argument. Default is true.
       decoration: NavBarDecoration(
-        borderRadius: BorderRadius.circular(10.0),
-        colorBehindNavBar: Colors.white,
-      ),
+          borderRadius: BorderRadius.circular(0.0),
+          boxShadow: [BoxShadow(blurRadius: 40, color: new Color(0x191D1617))]),
       popAllScreensOnTapOfSelectedTab: true,
       popActionScreens: PopActionScreensType.all,
-      itemAnimationProperties: ItemAnimationProperties(
+      itemAnimationProperties: const ItemAnimationProperties(
         // Navigation Bar's items animation properties.
         duration: Duration(milliseconds: 200),
         curve: Curves.ease,
       ),
-      screenTransitionAnimation: ScreenTransitionAnimation(
+      screenTransitionAnimation: const ScreenTransitionAnimation(
         // Screen transition animation on change of selected tab.
         animateTabTransition: true,
         curve: Curves.ease,

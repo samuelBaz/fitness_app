@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class TextScalerParser {
   // static double parser(TextScaler textScaler) {
   //   if (textScaler == TextScaler.noScaling)

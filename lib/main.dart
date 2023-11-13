@@ -3,6 +3,7 @@ import 'package:fitness_app/screens/complete_profile_screen.dart';
 import 'package:fitness_app/screens/dashboard_screen.dart';
 import 'package:fitness_app/screens/goals_screen.dart';
 import 'package:fitness_app/screens/login_screen.dart';
+import 'package:fitness_app/screens/notifications_screen.dart';
 import 'package:fitness_app/screens/onboarding_screen.dart';
 import 'package:fitness_app/screens/sign_up_screen.dart';
 import 'package:fitness_app/screens/splash_screen.dart';
@@ -33,7 +34,8 @@ class MyApp extends StatelessWidget {
         AppRoutes.completeProfile: (context) => CompleteProfileScreen(),
         AppRoutes.goals: (context) => GoalsScreen(),
         AppRoutes.wellcome: (context) => WellcomeScreen(),
-        AppRoutes.dashboard: (context) => DashboardScreen()
+        AppRoutes.dashboard: (context) => DashboardScreen(),
+        AppRoutes.notifications: (context) => NotificationsScreen()
       },
       initialRoute: AppRoutes.wellcome,
     );
