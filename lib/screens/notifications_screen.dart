@@ -18,16 +18,19 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
           child: Column(
         children: [
           Container(
-            margin: EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+            margin: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
             child: Row(children: [
-              Container(
-                  height: 32,
-                  width: 32,
-                  decoration: ShapeDecoration(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                      color: Color(0xffFFF7F8F8)),
-                  child: Icon(Icons.chevron_left)),
+              GestureDetector(
+                onTap: () => {Navigator.pop(context)},
+                child: Container(
+                    height: 32,
+                    width: 32,
+                    decoration: ShapeDecoration(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8)),
+                        color: Color(0xffFFF7F8F8)),
+                    child: Icon(Icons.chevron_left)),
+              ),
               const Expanded(
                 child: Text(
                   'Notification',

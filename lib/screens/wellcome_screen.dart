@@ -1,6 +1,7 @@
 import 'package:fitness_app/app_routes.dart';
 import 'package:fitness_app/widgets/button_fit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class WellcomeScreen extends StatefulWidget {
   const WellcomeScreen({super.key});
@@ -24,7 +25,7 @@ class _WellcomeScreenState extends State<WellcomeScreen> {
                 const SizedBox(
                   height: 94,
                 ),
-                Image.asset('assets/img_go_to_home.png'),
+                SvgPicture.asset('assets/img_welcome.svg'),
                 const SizedBox(
                   height: 36,
                 ),
