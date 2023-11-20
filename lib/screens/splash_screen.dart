@@ -1,4 +1,5 @@
 import 'package:fitness_app/app_routes.dart';
+import 'package:fitness_app/screens/onboarding_screen.dart';
 import 'package:fitness_app/utils/constants.dart';
 import 'package:fitness_app/widgets/button_fit.dart';
 import 'package:flutter/cupertino.dart';
@@ -12,6 +13,17 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  Future<void> _navigateAndResult(BuildContext context) async {
+    final result = await Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (_) => OnboardingScreen(test: true),
+            settings:
+                RouteSettings(arguments: "This argument is send to setting")));
+
+    print(result);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,8 +63,17 @@ class _SplashScreenState extends State<SplashScreen> {
               )),
           ButtonFit(
             text: "Get Started",
-            onPressed: () =>
-                {Navigator.pushNamed(context, AppRoutes.onboardingScreen)},
+            onPressed: () => {
+              // Navigator.popAndPushNamed(context, AppRoutes.onboardingScreen)
+              // Navigator.push(
+              //     context,
+              //     MaterialPageRoute(
+              //       builder: (context) => OnboardingScreen(
+              //         test: true,
+              //       ),
+              //     ))
+              _navigateAndResult(context)
+            },
           )
         ],
       ),

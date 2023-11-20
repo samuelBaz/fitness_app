@@ -28,7 +28,9 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         AppRoutes.splashScreen: (context) => SplashScreen(),
-        AppRoutes.onboardingScreen: (context) => OnboardingScreen(),
+        AppRoutes.onboardingScreen: (context) => OnboardingScreen(
+              test: false,
+            ),
         AppRoutes.signUp: (context) => SignUpScreen(),
         AppRoutes.login: (context) => LoginScreen(),
         AppRoutes.completeProfile: (context) => CompleteProfileScreen(),
@@ -37,7 +39,7 @@ class MyApp extends StatelessWidget {
         AppRoutes.dashboard: (context) => DashboardScreen(),
         AppRoutes.notifications: (context) => NotificationsScreen()
       },
-      initialRoute: AppRoutes.wellcome,
+      initialRoute: AppRoutes.dashboard,
     );
   }
 }

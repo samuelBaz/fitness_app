@@ -1,9 +1,12 @@
 import 'package:fitness_app/app_routes.dart';
 import 'package:fitness_app/screens/notifications_screen.dart';
 import 'package:fitness_app/utils/constants.dart';
+import 'package:fitness_app/widgets/banner_unity_fit.dart';
 import 'package:fitness_app/widgets/circle_item_fit.dart';
 import 'package:fitness_app/widgets/circles_fit.dart';
+import 'package:fitness_app/widgets/item_workout_fit.dart';
 import 'package:fitness_app/widgets/pie_chart_fit.dart';
+import 'package:fitness_app/widgets/row_real_time_fit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -19,6 +22,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  String optionSelected = "Weekly";
+  List<String> options = ["Weekly", "Monthly", "Yearly"];
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -278,8 +284,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       )
                     ],
                   ),
-                  child: Row(children: [
-                    const StepProgressIndicator(
+                  child: const Row(children: [
+                    StepProgressIndicator(
                       totalSteps: 100,
                       currentStep: 60,
                       direction: Axis.vertical,
@@ -298,7 +304,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         colors: [Color(0xFFF7F8F8), Color(0xFFF7F8F8)],
                       ),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       width: 10,
                     ),
                     Expanded(
@@ -339,530 +345,139 @@ class _HomeScreenState extends State<HomeScreen> {
                                 height: 0.15,
                               ),
                             ),
-                            const SizedBox(
+                            SizedBox(
                               height: 10,
                             ),
-                            const Row(
-                              children: [
-                                CircleItemFit(
-                                  size: 6,
-                                  mainColor: false,
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    '6am - 8am',
-                                    style: TextStyle(
-                                      color: Color(0xFFACA3A5),
-                                      fontSize: 8,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  width: 6,
-                                  alignment: Alignment.center,
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        width: 1,
-                                        height: 5,
-                                        color: Constants.colorActive,
-                                      ),
-                                      SizedBox(
-                                        height: 2,
-                                      ),
-                                      Container(
-                                        width: 1,
-                                        height: 3,
-                                        color: Constants.colorActive,
-                                      ),
-                                      SizedBox(
-                                        height: 4,
-                                      ),
-                                      Container(
-                                        width: 1,
-                                        height: 5,
-                                        color: Constants.colorActive,
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    '600ml',
-                                    style: TextStyle(
-                                        color: Color(0xFFC58BF2),
-                                        fontSize: 8,
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                )
-                              ],
-                            ),
-                            const Row(
-                              children: [
-                                CircleItemFit(
-                                  size: 6,
-                                  mainColor: false,
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    '6am - 8am',
-                                    style: TextStyle(
-                                      color: Color(0xFFACA3A5),
-                                      fontSize: 8,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  width: 6,
-                                  alignment: Alignment.center,
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        width: 1,
-                                        height: 5,
-                                        color: Constants.colorActive,
-                                      ),
-                                      SizedBox(
-                                        height: 2,
-                                      ),
-                                      Container(
-                                        width: 1,
-                                        height: 3,
-                                        color: Constants.colorActive,
-                                      ),
-                                      SizedBox(
-                                        height: 4,
-                                      ),
-                                      Container(
-                                        width: 1,
-                                        height: 5,
-                                        color: Constants.colorActive,
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    '600ml',
-                                    style: TextStyle(
-                                        color: Color(0xFFC58BF2),
-                                        fontSize: 8,
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                )
-                              ],
-                            ),
-                            const Row(
-                              children: [
-                                CircleItemFit(
-                                  size: 6,
-                                  mainColor: false,
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    '6am - 8am',
-                                    style: TextStyle(
-                                      color: Color(0xFFACA3A5),
-                                      fontSize: 8,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  width: 6,
-                                  alignment: Alignment.center,
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        width: 1,
-                                        height: 5,
-                                        color: Constants.colorActive,
-                                      ),
-                                      SizedBox(
-                                        height: 2,
-                                      ),
-                                      Container(
-                                        width: 1,
-                                        height: 3,
-                                        color: Constants.colorActive,
-                                      ),
-                                      SizedBox(
-                                        height: 4,
-                                      ),
-                                      Container(
-                                        width: 1,
-                                        height: 5,
-                                        color: Constants.colorActive,
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    '600ml',
-                                    style: TextStyle(
-                                        color: Color(0xFFC58BF2),
-                                        fontSize: 8,
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                )
-                              ],
-                            ),
-                            const Row(
-                              children: [
-                                CircleItemFit(
-                                  size: 6,
-                                  mainColor: false,
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    '6am - 8am',
-                                    style: TextStyle(
-                                      color: Color(0xFFACA3A5),
-                                      fontSize: 8,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  width: 6,
-                                  alignment: Alignment.center,
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        width: 1,
-                                        height: 5,
-                                        color: Constants.colorActive,
-                                      ),
-                                      SizedBox(
-                                        height: 2,
-                                      ),
-                                      Container(
-                                        width: 1,
-                                        height: 3,
-                                        color: Constants.colorActive,
-                                      ),
-                                      SizedBox(
-                                        height: 4,
-                                      ),
-                                      Container(
-                                        width: 1,
-                                        height: 5,
-                                        color: Constants.colorActive,
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    '600ml',
-                                    style: TextStyle(
-                                        color: Color(0xFFC58BF2),
-                                        fontSize: 8,
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                )
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                CircleItemFit(
-                                  size: 6,
-                                  mainColor: false,
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    '6am - 8am',
-                                    style: TextStyle(
-                                      color: Color(0xFFACA3A5),
-                                      fontSize: 8,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  width: 6,
-                                  alignment: Alignment.center,
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        width: 1,
-                                        height: 5,
-                                        color: Constants.colorActive,
-                                      ),
-                                      SizedBox(
-                                        height: 2,
-                                      ),
-                                      Container(
-                                        width: 1,
-                                        height: 3,
-                                        color: Constants.colorActive,
-                                      ),
-                                      SizedBox(
-                                        height: 4,
-                                      ),
-                                      Container(
-                                        width: 1,
-                                        height: 5,
-                                        color: Constants.colorActive,
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    '600ml',
-                                    style: TextStyle(
-                                        color: Color(0xFFC58BF2),
-                                        fontSize: 8,
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                )
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                CircleItemFit(
-                                  size: 6,
-                                  mainColor: false,
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    '6am - 8am',
-                                    style: TextStyle(
-                                      color: Color(0xFFACA3A5),
-                                      fontSize: 8,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  width: 6,
-                                  alignment: Alignment.center,
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        width: 1,
-                                        height: 5,
-                                        color: Constants.colorActive,
-                                      ),
-                                      SizedBox(
-                                        height: 2,
-                                      ),
-                                      Container(
-                                        width: 1,
-                                        height: 3,
-                                        color: Constants.colorActive,
-                                      ),
-                                      SizedBox(
-                                        height: 4,
-                                      ),
-                                      Container(
-                                        width: 1,
-                                        height: 5,
-                                        color: Constants.colorActive,
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    '600ml',
-                                    style: TextStyle(
-                                        color: Color(0xFFC58BF2),
-                                        fontSize: 8,
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                )
-                              ],
-                            ),
+                            RowRealTimeFit(),
+                            RowRealTimeFit(),
+                            RowRealTimeFit(),
+                            RowRealTimeFit(),
+                            RowRealTimeFit(),
+                            RowRealTimeFit(),
                           ]),
                     )
                   ]),
                 )),
-                SizedBox(
+                const SizedBox(
                   width: 16,
                 ),
-                Expanded(
+                const Expanded(
                     child: Column(
                   children: [
-                    Container(
-                      width: double.infinity,
-                      height: 150,
-                      padding: EdgeInsets.only(top: 20, left: 20, right: 20),
-                      decoration: ShapeDecoration(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        shadows: const [
-                          BoxShadow(
-                            color: Color(0x0C1D242A),
-                            blurRadius: 40,
-                            offset: Offset(0, 10),
-                            spreadRadius: 0,
-                          )
-                        ],
-                      ),
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              'Sleep',
-                              style: TextStyle(
-                                color: Color(0xFF1D1517),
-                                fontSize: 12,
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            const Text(
-                              "8h 20m",
-                              style: TextStyle(
-                                color: Color(0xFF92A3FD),
-                                fontSize: 14,
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            SvgPicture.asset("assets/chart_2.svg")
-                          ]),
+                    BannerUnityFit(
+                        title: "Sleep",
+                        description: "8h 20m",
+                        image: 'assets/chart_2.svg'),
+                    SizedBox(
+                      height: 15,
                     ),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    Container(
-                      width: double.infinity,
-                      height: 150,
-                      padding: EdgeInsets.only(top: 20, left: 20, right: 20),
-                      decoration: ShapeDecoration(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        shadows: const [
-                          BoxShadow(
-                            color: Color(0x0C1D242A),
-                            blurRadius: 40,
-                            offset: Offset(0, 10),
-                            spreadRadius: 0,
-                          )
-                        ],
-                      ),
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              'Calories',
-                              style: TextStyle(
-                                color: Color(0xFF1D1517),
-                                fontSize: 12,
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            const Text(
-                              "760 kCal",
-                              style: TextStyle(
-                                color: Color(0xFF92A3FD),
-                                fontSize: 14,
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SvgPicture.asset("assets/chart_3.svg")
-                              ],
-                            )
-                          ]),
-                    )
+                    BannerUnityFit(
+                        title: "Calories",
+                        description: "760 kCal",
+                        image: 'assets/chart_3.svg')
                   ],
                 ))
+              ]),
+            ),
+            Container(
+              margin: EdgeInsets.all(30),
+              child: Column(children: [
+                Row(
+                  children: [
+                    const Expanded(
+                        child: Text(
+                      'Workout Progress',
+                      style: TextStyle(
+                        color: Color(0xFF1D1517),
+                        fontSize: 16,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600,
+                      ),
+                    )),
+                    Container(
+                      width: 80,
+                      height: 30,
+                      decoration: ShapeDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment(-1.00, 0.08),
+                          end: Alignment(1, -0.08),
+                          colors: [Color(0xFF92A3FD), Color(0xFF9DCEFF)],
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                      ),
+                      child: DropdownButtonFormField(
+                        icon: Image.asset(
+                          'assets/icons/arrow_down.png',
+                          color: Colors.white,
+                        ),
+                        dropdownColor: Constants.primaryColor,
+                        decoration: const InputDecoration(
+                            contentPadding: EdgeInsets.only(
+                                left: 15, right: 10, top: 0, bottom: 15),
+                            constraints: BoxConstraints(maxHeight: 30),
+                            hintStyle: TextStyle(
+                              color: Colors.white,
+                              fontSize: 10,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w400,
+                            ),
+                            border: InputBorder.none),
+                        value: optionSelected,
+                        onChanged: (value) => {},
+                        items: options.map((String item) {
+                          return DropdownMenuItem(
+                              value: item,
+                              child: Text(
+                                item,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 10,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ));
+                        }).toList(),
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                SvgPicture.asset('assets/chart_4.svg')
+              ]),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 30),
+              child: Column(children: [
+                const Row(
+                  children: [
+                    Expanded(
+                        child: Text(
+                      'Latest Workout',
+                      style: TextStyle(
+                        color: Color(0xFF1D1517),
+                        fontSize: 16,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600,
+                      ),
+                    )),
+                    Text(
+                      'See more',
+                      style: TextStyle(
+                        color: Color(0xFFACA3A5),
+                        fontSize: 12,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w500,
+                      ),
+                    )
+                  ],
+                ),
+                ItemWorkOutFit(),
+                ItemWorkOutFit(),
+                ItemWorkOutFit(),
               ]),
             )
           ],

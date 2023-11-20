@@ -145,8 +145,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     text: "Register",
                     primary: true,
                     onPressed: () => {
-                          Navigator.pushNamed(
-                              context, AppRoutes.completeProfile)
+                          Navigator.pushNamedAndRemoveUntil(
+                              context,
+                              AppRoutes.completeProfile,
+                              (route) => route.isFirst)
                         }),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 30),

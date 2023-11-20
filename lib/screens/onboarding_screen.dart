@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:dashed_circular_progress_bar/dashed_circular_progress_bar.dart';
 
 class OnboardingScreen extends StatefulWidget {
-  const OnboardingScreen({super.key});
+  final bool test;
+  const OnboardingScreen({super.key, required this.test});
 
   @override
   State<OnboardingScreen> createState() => _OnboardingScreenState();
@@ -27,8 +28,30 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   ];
 
   @override
+  void initState() {
+    print(widget.test);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final argument = ModalRoute.of(context)!.settings.arguments;
+    print(argument);
+
     return Scaffold(
+        appBar: AppBar(
+          title: Text("Onboarding App Bar"),
+          leading: GestureDetector(
+            onTap: () => {
+              Navigator.pop(context,
+                  "Estoy volviendo de onboatrding conm un resultado negativo")
+            },
+            child: Icon(
+              Icons.arrow_back,
+              color: Colors.amber,
+            ),
+          ),
+        ),
         body: Container(
             color: Colors.white,
             child: Flex(
@@ -88,7 +111,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 progress_circle = progress_circle + 90.0;
                 position++;
               } else {
-                Navigator.pushNamed(context, AppRoutes.signUp);
+                Navigator.pushReplacementNamed(context, AppRoutes.signUp);
               }
             })
           },
