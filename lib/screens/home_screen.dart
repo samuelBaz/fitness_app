@@ -451,8 +451,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 30),
-              child: Column(children: [
-                const Row(
+              child: const Column(children: [
+                Row(
                   children: [
                     Expanded(
                         child: Text(
@@ -475,9 +475,22 @@ class _HomeScreenState extends State<HomeScreen> {
                     )
                   ],
                 ),
-                ItemWorkOutFit(),
-                ItemWorkOutFit(),
-                ItemWorkOutFit(),
+                SizedBox(
+                  height: 16,
+                ),
+                ItemWorkOutFit(
+                  color: Colors.white,
+                  progress: 30,
+                ),
+                ItemWorkOutFit(
+                  color: Color(0xFF97B5FE),
+                  mainColor: false,
+                  progress: 60,
+                ),
+                ItemWorkOutFit(
+                  color: Colors.white,
+                  progress: 85,
+                ),
               ]),
             )
           ],
