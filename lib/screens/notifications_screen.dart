@@ -1,3 +1,4 @@
+import 'package:fitness_app/widgets/app_bar_fit.dart';
 import 'package:fitness_app/widgets/item_fit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,62 +18,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
       body: SafeArea(
           child: Column(
         children: [
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
-            child: Row(children: [
-              GestureDetector(
-                onTap: () => {Navigator.pop(context)},
-                child: Container(
-                    height: 32,
-                    width: 32,
-                    decoration: ShapeDecoration(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8)),
-                        color: Color(0xffFFF7F8F8)),
-                    child: Icon(Icons.chevron_left)),
-              ),
-              const Expanded(
-                child: Text(
-                  'Notification',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ),
-              Container(
-                  height: 32,
-                  width: 32,
-                  decoration: ShapeDecoration(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                      color: Color(0xffFFF7F8F8)),
-                  child: Center(
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 4,
-                            height: 4,
-                            decoration: const ShapeDecoration(
-                                shape: OvalBorder(), color: Colors.black),
-                          ),
-                          const SizedBox(
-                            width: 2,
-                          ),
-                          Container(
-                            width: 4,
-                            height: 4,
-                            decoration: const ShapeDecoration(
-                                shape: OvalBorder(), color: Colors.black),
-                          )
-                        ]),
-                  )),
-            ]),
-          ),
+          const AppBarFit(title: "Notification"),
           Expanded(
               child: ListView(
             children: [

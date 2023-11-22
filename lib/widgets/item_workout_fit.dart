@@ -57,7 +57,7 @@ class _ItemWorkOutFitState extends State<ItemWorkOutFit> {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             const Text(
@@ -69,7 +69,7 @@ class _ItemWorkOutFitState extends State<ItemWorkOutFit> {
                 fontWeight: FontWeight.w400,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             StepProgressIndicator(
@@ -80,12 +80,12 @@ class _ItemWorkOutFitState extends State<ItemWorkOutFit> {
               size: 10,
               padding: 0,
               roundedEdges: Radius.circular(10),
-              selectedGradientColor: LinearGradient(
+              selectedGradientColor: const LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [Color(0xFFC58BF2), Color(0xFFB3BFFD)],
               ),
-              unselectedGradientColor: LinearGradient(
+              unselectedGradientColor: const LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [Color(0xFFF7F8F8), Color(0xFFF7F8F8)],
@@ -96,13 +96,13 @@ class _ItemWorkOutFitState extends State<ItemWorkOutFit> {
         Container(
           width: 24,
           height: 24,
-          decoration: ShapeDecoration(
+          decoration: const ShapeDecoration(
             color: Colors.white,
             shape: OvalBorder(
               side: BorderSide(width: 0.80, color: Color(0xFFC58BF2)),
             ),
           ),
-          child: Icon(
+          child: const Icon(
             Icons.chevron_right,
             color: Color(0xFFC58BF2),
           ),
