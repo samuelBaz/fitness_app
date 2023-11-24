@@ -9,6 +9,8 @@ import 'package:fitness_app/screens/sign_up_screen.dart';
 import 'package:fitness_app/screens/splash_screen.dart';
 import 'package:fitness_app/screens/wellcome_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,13 +24,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate
+      ],
+      supportedLocales: const [Locale("en"), Locale("es"), Locale("fr")],
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       routes: {
         AppRoutes.splashScreen: (context) => SplashScreen(),
-        AppRoutes.onboardingScreen: (context) => OnboardingScreen(
+        AppRoutes.onboardingScreen: (context) => const OnboardingScreen(
               test: false,
             ),
         AppRoutes.signUp: (context) => SignUpScreen(),
@@ -39,7 +48,7 @@ class MyApp extends StatelessWidget {
         AppRoutes.dashboard: (context) => DashboardScreen(),
         AppRoutes.notifications: (context) => NotificationsScreen()
       },
-      initialRoute: AppRoutes.dashboard,
+      initialRoute: AppRoutes.splashScreen,
     );
   }
 }

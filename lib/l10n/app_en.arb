@@ -1,0 +1,13 @@
+{
+  "profile": "Profile of {email}",
+  "@profile": {
+    "description": "This title is own of screen profile",
+    "placeholder": {
+      "email": {
+        "type": "String",
+        "example": "Samuel"
+      }
+    }
+  },
+  "account": "Account"
+}

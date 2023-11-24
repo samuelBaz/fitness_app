@@ -15,7 +15,11 @@ class _AppBarFitState extends State<AppBarFit> {
       margin: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
       child: Row(children: [
         GestureDetector(
-          onTap: () => {Navigator.pop(context)},
+          onTap: () {
+            if (Navigator.canPop(context)) {
+              Navigator.pop(context);
+            }
+          },
           child: Container(
               height: 32,
               width: 32,

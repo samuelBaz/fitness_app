@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -18,7 +19,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: ListView(children: [
-      const AppBarFit(title: "Profile"),
+      AppBarFit(
+          title: AppLocalizations.of(context)!.profile("samuel@gmail.com")),
       Container(
         margin: EdgeInsets.symmetric(horizontal: 30),
         child: Row(children: [
@@ -83,24 +85,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ))
         ]),
       ),
-      // Container(
-      //   width: double.infinity,
-      //   margin: EdgeInsets.symmetric(horizontal: 30),
-      //   child: GridView.count(crossAxisCount: 3, children: [
-      //     Container(
-      //       color: Colors.red,
-      //       child: Text("1"),
-      //     ),
-      //     Container(
-      //       color: Colors.red,
-      //       child: Text("2"),
-      //     ),
-      //     Container(
-      //       color: Colors.red,
-      //       child: Text("3"),
-      //     ),
-      //   ]),
-      // )
       Container(
         margin: EdgeInsets.symmetric(horizontal: 30, vertical: 16),
         child: Row(children: [
@@ -133,9 +117,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ],
         ),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          const Text(
-            'Account',
-            style: TextStyle(
+          Text(
+            AppLocalizations.of(context)!.account,
+            style: const TextStyle(
               color: Color(0xFF1D1517),
               fontSize: 16,
               fontFamily: 'Poppins',

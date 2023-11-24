@@ -7,6 +7,7 @@ import 'package:fitness_app/widgets/circles_fit.dart';
 import 'package:fitness_app/widgets/item_workout_fit.dart';
 import 'package:fitness_app/widgets/pie_chart_fit.dart';
 import 'package:fitness_app/widgets/row_real_time_fit.dart';
+import 'package:fitness_app/widgets/select_fit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -394,53 +395,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         fontWeight: FontWeight.w600,
                       ),
                     )),
-                    Container(
-                      width: 80,
-                      height: 30,
-                      decoration: ShapeDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment(-1.00, 0.08),
-                          end: Alignment(1, -0.08),
-                          colors: [Color(0xFF92A3FD), Color(0xFF9DCEFF)],
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                      ),
-                      child: DropdownButtonFormField(
-                        icon: Image.asset(
-                          'assets/icons/arrow_down.png',
-                          color: Colors.white,
-                        ),
-                        dropdownColor: Constants.primaryColor,
-                        decoration: const InputDecoration(
-                            contentPadding: EdgeInsets.only(
-                                left: 15, right: 10, top: 0, bottom: 15),
-                            constraints: BoxConstraints(maxHeight: 30),
-                            hintStyle: TextStyle(
-                              color: Colors.white,
-                              fontSize: 10,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w400,
-                            ),
-                            border: InputBorder.none),
-                        value: optionSelected,
-                        onChanged: (value) => {},
-                        items: options.map((String item) {
-                          return DropdownMenuItem(
-                              value: item,
-                              child: Text(
-                                item,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 10,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ));
-                        }).toList(),
-                      ),
-                    )
+                    SelectFit(options: options)
                   ],
                 ),
                 const SizedBox(
