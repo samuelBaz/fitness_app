@@ -27,59 +27,65 @@ class _ButtonFitState extends State<ButtonFit> {
     // TextScaler textScaler = MediaQuery.textScalerOf(context);
     double textScalerParsed = MediaQuery.textScaleFactorOf(context);
 
-    return GestureDetector(
-      onTap: widget.onPressed,
-      child: Container(
-          height: textScalerParsed > 1.0
-              ? 80
-              : textScalerParsed < 1.0
-                  ? 40
-                  : 60,
-          width: double.infinity,
-          margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-          decoration: ShapeDecoration(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(99),
-            ),
-            shadows: const [
-              BoxShadow(
-                color: Color(0x3F000000),
-                blurRadius: 4,
-                offset: Offset(0, 4),
-                spreadRadius: 0,
-              )
-            ],
-            gradient: LinearGradient(
-              begin: Alignment(-1.00, 0.08),
-              end: Alignment(1, -0.08),
-              colors: widget.primary
-                  ? [Color(0xFF92A3FD), Color(0xFF9DCEFF)]
-                  : [Colors.white, Colors.white],
-            ),
-          ),
-          child: Center(
-              child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              widget.prefixIconString == ""
-                  ? const SizedBox()
-                  : Container(
-                      margin: EdgeInsets.only(right: 8),
-                      child: Image.asset(widget.prefixIconString),
-                    ),
-              Text(
-                widget.text,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                    color: widget.primary ? Colors.white : Colors.black,
-                    fontFamily: 'Poppins',
-                    fontSize: 16,
-                    fontWeight: FontWeight.w900),
+    return Theme(
+        data: ThemeData(
+            colorScheme: ColorScheme.fromSeed(
+                seedColor: Colors.amber, brightness: Brightness.dark)),
+        child: GestureDetector(
+          onTap: widget.onPressed,
+          child: Container(
+              height: textScalerParsed > 1.0
+                  ? 80
+                  : textScalerParsed < 1.0
+                      ? 40
+                      : 60,
+              width: double.infinity,
+              margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+              decoration: ShapeDecoration(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(99),
+                ),
+                shadows: const [
+                  BoxShadow(
+                    color: Color(0x3F000000),
+                    blurRadius: 4,
+                    offset: Offset(0, 4),
+                    spreadRadius: 0,
+                  )
+                ],
+                gradient: LinearGradient(
+                  begin: Alignment(-1.00, 0.08),
+                  end: Alignment(1, -0.08),
+                  colors: widget.primary
+                      ? [Color(0xFF92A3FD), Color(0xFF9DCEFF)]
+                      : [Colors.white, Colors.white],
+                ),
               ),
-              widget.suffixIcon == null ? const SizedBox() : widget.suffixIcon!
-            ],
-          ))),
-    );
+              child: Center(
+                  child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  widget.prefixIconString == ""
+                      ? const SizedBox()
+                      : Container(
+                          margin: EdgeInsets.only(right: 8),
+                          child: Image.asset(widget.prefixIconString),
+                        ),
+                  Text(
+                    widget.text,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                        color: widget.primary ? Colors.white : Colors.black,
+                        fontFamily: 'Poppins',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w900),
+                  ),
+                  widget.suffixIcon == null
+                      ? const SizedBox()
+                      : widget.suffixIcon!
+                ],
+              ))),
+        ));
   }
 }

@@ -49,6 +49,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
+  collapsible_app_bar:
+    dependency: "direct main"
+    description:
+      name: collapsible_app_bar
+      sha256: "41205ae621397a02fa63e8399746948841a1a4c079c160e172aca10c1336766a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.4"
   collection:
     dependency: transitive
     description:

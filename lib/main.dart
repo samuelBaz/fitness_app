@@ -8,6 +8,7 @@ import 'package:fitness_app/screens/onboarding_screen.dart';
 import 'package:fitness_app/screens/sign_up_screen.dart';
 import 'package:fitness_app/screens/splash_screen.dart';
 import 'package:fitness_app/screens/wellcome_screen.dart';
+import 'package:fitness_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -32,7 +33,19 @@ class MyApp extends StatelessWidget {
       ],
       supportedLocales: const [Locale("en"), Locale("es"), Locale("fr")],
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: Color(0xff94A8FE), brightness: Brightness.light),
+        fontFamily: 'Poppins',
+        textTheme: TextTheme(
+          displayLarge: TextStyle(
+              fontSize: 36,
+              fontWeight: FontWeight.w900,
+              color: Theme.of(context).colorScheme.primary),
+          labelMedium: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w400,
+              color: Constants.grayColor),
+        ),
         useMaterial3: true,
       ),
       routes: {
@@ -48,7 +61,7 @@ class MyApp extends StatelessWidget {
         AppRoutes.dashboard: (context) => DashboardScreen(),
         AppRoutes.notifications: (context) => NotificationsScreen()
       },
-      initialRoute: AppRoutes.splashScreen,
+      initialRoute: AppRoutes.dashboard,
     );
   }
 }

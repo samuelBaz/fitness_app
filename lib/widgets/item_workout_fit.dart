@@ -1,7 +1,9 @@
+import 'package:fitness_app/screens/workout_tracer_screen.dart';
 import 'package:fitness_app/widgets/circle_item_fit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 class ItemWorkOutFit extends StatefulWidget {
@@ -93,18 +95,26 @@ class _ItemWorkOutFitState extends State<ItemWorkOutFit> {
             ),
           ],
         )),
-        Container(
-          width: 24,
-          height: 24,
-          decoration: const ShapeDecoration(
-            color: Colors.white,
-            shape: OvalBorder(
-              side: BorderSide(width: 0.80, color: Color(0xFFC58BF2)),
+        GestureDetector(
+          onTap: () => {
+            PersistentNavBarNavigator.pushNewScreen(context,
+                screen: WorkoutTracerScreen(),
+                withNavBar: false,
+                pageTransitionAnimation: PageTransitionAnimation.cupertino)
+          },
+          child: Container(
+            width: 24,
+            height: 24,
+            decoration: const ShapeDecoration(
+              color: Colors.white,
+              shape: OvalBorder(
+                side: BorderSide(width: 0.80, color: Color(0xFFC58BF2)),
+              ),
             ),
-          ),
-          child: const Icon(
-            Icons.chevron_right,
-            color: Color(0xFFC58BF2),
+            child: const Icon(
+              Icons.chevron_right,
+              color: Color(0xFFC58BF2),
+            ),
           ),
         )
       ]),

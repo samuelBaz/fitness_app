@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
       child: Flex(
         direction: Axis.vertical,
         children: [
-          const Expanded(
+          Expanded(
               flex: 1,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -40,25 +40,21 @@ class _SplashScreenState extends State<SplashScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Flexi",
-                          style: TextStyle(
-                              fontSize: 36,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w900)),
-                      Text("FY",
-                          style: TextStyle(
-                              fontSize: 36,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w900,
-                              color: Colors.white)),
+                      Text(
+                        "Flexi",
+                        style: Theme.of(context).textTheme.displayLarge,
+                      ),
+                      Text(
+                        "FY",
+                        style: Theme.of(context)
+                            .textTheme
+                            .displayLarge!
+                            .copyWith(color: Colors.white),
+                      ),
                     ],
                   ),
                   Text('Everybody Can Train',
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w400,
-                          color: Constants.grayColor)),
+                      style: Theme.of(context).textTheme.labelMedium),
                 ],
               )),
           ButtonFit(

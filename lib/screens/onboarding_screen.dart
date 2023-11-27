@@ -82,12 +82,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(titles[position - 1],
-                                    style: const TextStyle(
-                                      color: Color(0xFF1D1517),
-                                      fontSize: 25,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w900,
-                                    )),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .displayLarge!
+                                        .copyWith(fontSize: 25)),
                                 const SizedBox(height: 16),
                                 Text(
                                   descriptions[position - 1],
