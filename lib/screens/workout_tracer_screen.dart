@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:collapsible_app_bar/collapsible_app_bar.dart';
 import 'package:fitness_app/widgets/app_bar_fit.dart';
+import 'package:fitness_app/widgets/item_workout_fit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -35,9 +36,66 @@ class _WorkoutTracerScreenState extends State<WorkoutTracerScreen>
           Navigator.pop(context);
         },
         // The title text displayed when the app bar is collapsed.
-        shrinkTitle: 'Do you like it?',
+        shrinkTitle: 'Workout Tracker',
+        shrinkTitleStyle: const TextStyle(
+          color: Colors.white,
+          fontSize: 16,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w700,
+        ),
+        pinned: true,
+
+        customLeading: Container(
+          alignment: Alignment.centerRight,
+          child: GestureDetector(
+            onTap: () {
+              if (Navigator.canPop(context)) {
+                Navigator.pop(context);
+              }
+            },
+            child: Container(
+                height: 32,
+                width: 32,
+                decoration: ShapeDecoration(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8)),
+                    color: Color(0xffFFF7F8F8)),
+                child: Icon(Icons.chevron_left)),
+          ),
+        ),
+        actions: [
+          Container(
+              height: 32,
+              width: 32,
+              margin: EdgeInsets.only(right: 30),
+              decoration: ShapeDecoration(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)),
+                  color: Color(0xffFFF7F8F8)),
+              child: Center(
+                child:
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  Container(
+                    width: 4,
+                    height: 4,
+                    decoration: const ShapeDecoration(
+                        shape: OvalBorder(), color: Colors.black),
+                  ),
+                  const SizedBox(
+                    width: 2,
+                  ),
+                  Container(
+                    width: 4,
+                    height: 4,
+                    decoration: const ShapeDecoration(
+                        shape: OvalBorder(), color: Colors.black),
+                  )
+                ]),
+              )),
+        ],
         forceElevated: true,
         elevation: 0.3,
+        shrinkThreshold: 10,
         // We can listen for the collapsed status change.
         onChange: (collapsed) {
           setState(() {
@@ -48,122 +106,142 @@ class _WorkoutTracerScreenState extends State<WorkoutTracerScreen>
         expandedHeight: 250,
         // The header can be any widget, as long as its height is in bound.
         header: _buildHeader(context),
-        // Here we use TabBar as the header bottom, and we will use the default heightBottomHeight.
-        headerBottom: _buildHeaderBottom(context),
         // The body contains TabBarView so we don't want to use ScrollContentWrapper,
         // but we should use wrapper for the children of the TabBarView in order
         // to avoid the overlap of the body's content.
         userWrapper: false,
-        body: _buildBody(context),
+        body: Container(
+            decoration: const ShapeDecoration(
+              shape: RoundedRectangleBorder(),
+              gradient: LinearGradient(
+                end: Alignment(-1.00, 0.08),
+                begin: Alignment(1, -0.08),
+                colors: [Color(0xFF92A3FD), Color(0xFF9DCEFF)],
+              ),
+            ),
+            child: Container(
+              margin: EdgeInsets.only(top: 60),
+              decoration: ShapeDecoration(
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(40),
+                ),
+              ),
+              child: ScrollContentWrapper(
+                  child: Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 30),
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                    decoration: ShapeDecoration(
+                        color: Color(0xffEAF0FE),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16))),
+                    child: Row(children: [
+                      const Expanded(
+                          child: Text(
+                        'Today Target',
+                        style: TextStyle(
+                          color: Color(0xFF1D1517),
+                          fontSize: 14,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w500,
+                        ),
+                      )),
+                      Container(
+                        width: 70,
+                        height: 30,
+                        decoration: ShapeDecoration(
+                          gradient: const LinearGradient(
+                            begin: Alignment(-1.00, 0.08),
+                            end: Alignment(1, -0.08),
+                            colors: [Color(0xFF92A3FD), Color(0xFF9DCEFF)],
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                        ),
+                        child: const Center(
+                            child: Text(
+                          'Check',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w400,
+                            height: 0,
+                          ),
+                        )),
+                      )
+                    ]),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 30, vertical: 16),
+                    child: Column(children: [
+                      Row(
+                        children: [
+                          Expanded(
+                              child: Text(
+                            'Latest Workout',
+                            style: TextStyle(
+                              color: Color(0xFF1D1517),
+                              fontSize: 16,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600,
+                            ),
+                          )),
+                          Text(
+                            'See more',
+                            style: TextStyle(
+                              color: Color(0xFFACA3A5),
+                              fontSize: 12,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 16,
+                      ),
+                      ItemWorkOutFit(
+                        color: Colors.white,
+                        progress: 30,
+                      ),
+                      ItemWorkOutFit(
+                        color: Color(0xFF97B5FE),
+                        mainColor: false,
+                        progress: 60,
+                      ),
+                      ItemWorkOutFit(
+                        color: Colors.white,
+                        progress: 85,
+                      ),
+                    ]),
+                  )
+                ],
+              )),
+            )),
       )),
-      floatingActionButton: _buildFab(context),
     );
   }
 
   Widget _buildHeader(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(
-          width: width,
-          child: Image.network(
-            'https://img.yzcdn.cn/vant/cat.jpeg',
-            height: 200,
-            fit: BoxFit.cover,
-          ),
-        ),
-        Container(
-          alignment: Alignment.centerLeft,
-          height: 50,
-          padding: const EdgeInsets.symmetric(
-            horizontal: 12,
-          ),
-          child: const Text(
-            'This is an example with tabs',
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.left,
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-          ),
-        ),
-        Container(
-          height: 10,
-          color: Colors.grey[100],
-        ),
-      ],
-    );
-  }
-
-  Widget _buildHeaderBottom(BuildContext context) {
-    return TabBar(
-      controller: tabController,
-      labelColor: Colors.black87,
-      labelPadding: const EdgeInsets.only(bottom: 8),
-      labelStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
-      indicatorSize: TabBarIndicatorSize.label,
-      tabs: const [
-        Text('Tab One'),
-        Text('Tab Two'),
-        Text('Tab Three'),
-      ],
-    );
-  }
-
-  Widget _buildFab(BuildContext context) {
-    return FloatingActionButton(
-      onPressed: () {
-        ScaffoldMessenger.of(context).clearSnackBars();
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text(
-                'The App Bar is ${appBarCollapsed ? 'COLLAPSED' : 'EXPANDED'}')));
-      },
-      child: Icon(
-        appBarCollapsed
-            ? Icons.arrow_circle_up_outlined
-            : Icons.arrow_circle_down_outlined,
-      ),
-    );
-  }
-
-  Widget _buildBody(BuildContext context) {
-    return TabBarView(controller: tabController, children: [
-      ScrollContentWrapper(child: _buildTab()),
-      ScrollContentWrapper(child: _buildTab()),
-      ScrollContentWrapper(child: _buildTab()),
-    ]);
-  }
-
-  Widget _buildTab() {
-    var colors = [
-      Colors.amber,
-      Colors.blue,
-      Colors.cyan,
-      Colors.green,
-      Colors.purple,
-      Colors.red,
-      Colors.yellow,
-    ];
-
-    colors.shuffle(Random());
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      child: Column(
-        children: colors.map((color) => _containerWithColor(color)).toList(),
-      ),
-    );
-  }
-
-  Widget _containerWithColor(Color color) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      height: 100,
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(8),
+      width: width,
+      height: 274,
+      padding: EdgeInsets.all(30),
+      decoration: const ShapeDecoration(
+        shape: RoundedRectangleBorder(),
+        gradient: LinearGradient(
+          end: Alignment(-1.00, 0.08),
+          begin: Alignment(1, -0.08),
+          colors: [Color(0xFF92A3FD), Color(0xFF9DCEFF)],
+        ),
       ),
+      child: SvgPicture.asset("assets/chart_4.svg"),
     );
   }
 }
