@@ -44,7 +44,7 @@ class _WorkoutTracerScreenState extends State<WorkoutTracerScreen>
           fontWeight: FontWeight.w700,
         ),
         pinned: true,
-
+        backgroundColor: Colors.transparent,
         customLeading: Container(
           alignment: Alignment.centerRight,
           child: GestureDetector(
@@ -59,8 +59,8 @@ class _WorkoutTracerScreenState extends State<WorkoutTracerScreen>
                 decoration: ShapeDecoration(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8)),
-                    color: Color(0xffFFF7F8F8)),
-                child: Icon(Icons.chevron_left)),
+                    color: const Color(0xffFFF7F8F8)),
+                child: const Icon(Icons.chevron_left)),
           ),
         ),
         actions: [
@@ -120,11 +120,13 @@ class _WorkoutTracerScreenState extends State<WorkoutTracerScreen>
               ),
             ),
             child: Container(
-              margin: EdgeInsets.only(top: 60),
-              decoration: ShapeDecoration(
+              margin: const EdgeInsets.only(top: 60),
+              decoration: const ShapeDecoration(
                 color: Colors.white,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(40),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(40),
+                      topRight: Radius.circular(40)),
                 ),
               ),
               child: ScrollContentWrapper(
@@ -176,8 +178,9 @@ class _WorkoutTracerScreenState extends State<WorkoutTracerScreen>
                     ]),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: 30, vertical: 16),
-                    child: Column(children: [
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 16),
+                    child: const Column(children: [
                       Row(
                         children: [
                           Expanded(
@@ -218,11 +221,553 @@ class _WorkoutTracerScreenState extends State<WorkoutTracerScreen>
                         progress: 85,
                       ),
                     ]),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 30),
+                    child: Column(children: [
+                      Row(
+                        children: [
+                          Expanded(
+                              child: Text(
+                            "You’ll Need",
+                            style: Theme.of(context)
+                                .textTheme
+                                .displayLarge!
+                                .copyWith(color: Colors.black, fontSize: 16),
+                          )),
+                          const Padding(
+                            padding: EdgeInsets.only(right: 30),
+                            child: Text(
+                              '5 Items',
+                              style: TextStyle(
+                                color: Color(0xFFACA3A5),
+                                fontSize: 12,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      Container(
+                        height: 190,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            _createItem("assets/barbel.svg", "Berbell"),
+                            _createItem(
+                                "assets/skipping-rope.svg", "Skipping Rope"),
+                            _createItem("assets/barbel.svg", "Skipping Rope"),
+                            _createItem("assets/skipping-rope.svg", "Berbell"),
+                            _createItem("assets/barbel.svg", "Skipping Rope"),
+                          ],
+                        ),
+                      )
+                    ]),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 30, bottom: 30, left: 30),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Find Something to Eat',
+                            style: TextStyle(
+                              color: Color(0xFF1D1517),
+                              fontSize: 16,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                            height: 200,
+                            child: ListView(
+                              scrollDirection: Axis.horizontal,
+                              children: [
+                                Container(
+                                  width: 200,
+                                  height: 200,
+                                  margin: EdgeInsets.only(right: 15),
+                                  decoration: ShapeDecoration(
+                                    gradient: LinearGradient(
+                                      begin: Alignment(-1.00, 0.08),
+                                      end: Alignment(1, -0.08),
+                                      colors: [
+                                        Color(0xFF92A3FD).withOpacity(0.2),
+                                        Color(0xFF9DCEFF).withOpacity(0.2)
+                                      ],
+                                    ),
+                                    shape: const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(22),
+                                        topRight: Radius.circular(100),
+                                        bottomLeft: Radius.circular(22),
+                                        bottomRight: Radius.circular(22),
+                                      ),
+                                    ),
+                                    shadows: const [
+                                      BoxShadow(
+                                        color: Color(0x4C95ADFE),
+                                        blurRadius: 22,
+                                        offset: Offset(0, 10),
+                                        spreadRadius: 0,
+                                      )
+                                    ],
+                                  ),
+                                  child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 8, right: 11),
+                                          child: SvgPicture.asset(
+                                              "assets/pie.svg"),
+                                        ),
+                                        Container(
+                                          width: 200,
+                                          margin: EdgeInsets.only(left: 20),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              const Text(
+                                                'Breakfast',
+                                                style: TextStyle(
+                                                  color: Color(0xFF1D1517),
+                                                  fontSize: 14,
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                height: 5,
+                                              ),
+                                              const Text(
+                                                '120+ Foods',
+                                                style: TextStyle(
+                                                  color: Color(0xFF7B6F72),
+                                                  fontSize: 12,
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                              Container(
+                                                width: 98,
+                                                height: 30,
+                                                margin:
+                                                    const EdgeInsets.symmetric(
+                                                        vertical: 15),
+                                                alignment: Alignment.center,
+                                                decoration: ShapeDecoration(
+                                                  gradient:
+                                                      const LinearGradient(
+                                                    begin:
+                                                        Alignment(-1.00, 0.08),
+                                                    end: Alignment(1, -0.08),
+                                                    colors: [
+                                                      Color(0xFF92A3FD),
+                                                      Color(0xFF9DCEFF)
+                                                    ],
+                                                  ),
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            50),
+                                                  ),
+                                                ),
+                                                child: const Text(
+                                                  'Select',
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 12,
+                                                    fontFamily: 'Poppins',
+                                                    fontWeight: FontWeight.w600,
+                                                    height: 0.12,
+                                                  ),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        )
+                                      ]),
+                                ),
+                                Container(
+                                    width: 200,
+                                    height: 200,
+                                    margin: EdgeInsets.only(right: 15),
+                                    decoration: ShapeDecoration(
+                                      gradient: LinearGradient(
+                                        begin: Alignment(-1.00, 0.08),
+                                        end: Alignment(1, -0.08),
+                                        colors: [
+                                          Color(0xFFC58BF2).withOpacity(0.2),
+                                          Color(0xFFEEA4CE).withOpacity(0.2)
+                                        ],
+                                      ),
+                                      shape: const RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(22),
+                                          topRight: Radius.circular(100),
+                                          bottomLeft: Radius.circular(22),
+                                          bottomRight: Radius.circular(22),
+                                        ),
+                                      ),
+                                      shadows: const [
+                                        BoxShadow(
+                                          color: Color(0x4C95ADFE),
+                                          blurRadius: 22,
+                                          offset: Offset(0, 10),
+                                          spreadRadius: 0,
+                                        )
+                                      ],
+                                    ),
+                                    child: Stack(
+                                      children: [
+                                        Container(
+                                          width: 200,
+                                          margin: EdgeInsets.only(left: 20),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              const Text(
+                                                'Breakfast',
+                                                style: TextStyle(
+                                                  color: Color(0xFF1D1517),
+                                                  fontSize: 14,
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                height: 5,
+                                              ),
+                                              const Text(
+                                                '120+ Foods',
+                                                style: TextStyle(
+                                                  color: Color(0xFF7B6F72),
+                                                  fontSize: 12,
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                              Container(
+                                                width: 98,
+                                                height: 30,
+                                                margin:
+                                                    const EdgeInsets.symmetric(
+                                                        vertical: 15),
+                                                alignment: Alignment.center,
+                                                decoration: ShapeDecoration(
+                                                  gradient:
+                                                      const LinearGradient(
+                                                    begin:
+                                                        Alignment(-1.00, 0.08),
+                                                    end: Alignment(1, -0.08),
+                                                    colors: [
+                                                      Color(0xFF92A3FD),
+                                                      Color(0xFF9DCEFF)
+                                                    ],
+                                                  ),
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            50),
+                                                  ),
+                                                ),
+                                                child: const Text(
+                                                  'Select',
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 12,
+                                                    fontFamily: 'Poppins',
+                                                    fontWeight: FontWeight.w600,
+                                                    height: 0.12,
+                                                  ),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                        Positioned(
+                                            top: 8,
+                                            right: 11,
+                                            child: SvgPicture.asset(
+                                                "assets/bread.svg"))
+                                      ],
+                                    )),
+                                Container(
+                                  width: 200,
+                                  height: 200,
+                                  margin: EdgeInsets.only(right: 15),
+                                  decoration: ShapeDecoration(
+                                    gradient: LinearGradient(
+                                      begin: Alignment(-1.00, 0.08),
+                                      end: Alignment(1, -0.08),
+                                      colors: [
+                                        Color(0xFF92A3FD).withOpacity(0.2),
+                                        Color(0xFF9DCEFF).withOpacity(0.2)
+                                      ],
+                                    ),
+                                    shape: const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(22),
+                                        topRight: Radius.circular(100),
+                                        bottomLeft: Radius.circular(22),
+                                        bottomRight: Radius.circular(22),
+                                      ),
+                                    ),
+                                    shadows: const [
+                                      BoxShadow(
+                                        color: Color(0x4C95ADFE),
+                                        blurRadius: 22,
+                                        offset: Offset(0, 10),
+                                        spreadRadius: 0,
+                                      )
+                                    ],
+                                  ),
+                                  child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 8, right: 11),
+                                          child: SvgPicture.asset(
+                                              "assets/pie.svg"),
+                                        ),
+                                        Container(
+                                          width: 200,
+                                          margin: EdgeInsets.only(left: 20),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              const Text(
+                                                'Breakfast',
+                                                style: TextStyle(
+                                                  color: Color(0xFF1D1517),
+                                                  fontSize: 14,
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                height: 5,
+                                              ),
+                                              const Text(
+                                                '120+ Foods',
+                                                style: TextStyle(
+                                                  color: Color(0xFF7B6F72),
+                                                  fontSize: 12,
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                              Container(
+                                                width: 98,
+                                                height: 30,
+                                                margin:
+                                                    const EdgeInsets.symmetric(
+                                                        vertical: 15),
+                                                alignment: Alignment.center,
+                                                decoration: ShapeDecoration(
+                                                  gradient:
+                                                      const LinearGradient(
+                                                    begin:
+                                                        Alignment(-1.00, 0.08),
+                                                    end: Alignment(1, -0.08),
+                                                    colors: [
+                                                      Color(0xFF92A3FD),
+                                                      Color(0xFF9DCEFF)
+                                                    ],
+                                                  ),
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            50),
+                                                  ),
+                                                ),
+                                                child: const Text(
+                                                  'Select',
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 12,
+                                                    fontFamily: 'Poppins',
+                                                    fontWeight: FontWeight.w600,
+                                                    height: 0.12,
+                                                  ),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        )
+                                      ]),
+                                ),
+                                Container(
+                                    width: 200,
+                                    height: 200,
+                                    margin: EdgeInsets.only(right: 15),
+                                    decoration: ShapeDecoration(
+                                      gradient: LinearGradient(
+                                        begin: Alignment(-1.00, 0.08),
+                                        end: Alignment(1, -0.08),
+                                        colors: [
+                                          Color(0xFFC58BF2).withOpacity(0.2),
+                                          Color(0xFFEEA4CE).withOpacity(0.2)
+                                        ],
+                                      ),
+                                      shape: const RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(22),
+                                          topRight: Radius.circular(100),
+                                          bottomLeft: Radius.circular(22),
+                                          bottomRight: Radius.circular(22),
+                                        ),
+                                      ),
+                                      shadows: const [
+                                        BoxShadow(
+                                          color: Color(0x4C95ADFE),
+                                          blurRadius: 22,
+                                          offset: Offset(0, 10),
+                                          spreadRadius: 0,
+                                        )
+                                      ],
+                                    ),
+                                    child: Stack(
+                                      children: [
+                                        Container(
+                                          width: 200,
+                                          margin: EdgeInsets.only(left: 20),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              const Text(
+                                                'Breakfast',
+                                                style: TextStyle(
+                                                  color: Color(0xFF1D1517),
+                                                  fontSize: 14,
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                height: 5,
+                                              ),
+                                              const Text(
+                                                '120+ Foods',
+                                                style: TextStyle(
+                                                  color: Color(0xFF7B6F72),
+                                                  fontSize: 12,
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                              Container(
+                                                width: 98,
+                                                height: 30,
+                                                margin:
+                                                    const EdgeInsets.symmetric(
+                                                        vertical: 15),
+                                                alignment: Alignment.center,
+                                                decoration: ShapeDecoration(
+                                                  gradient:
+                                                      const LinearGradient(
+                                                    begin:
+                                                        Alignment(-1.00, 0.08),
+                                                    end: Alignment(1, -0.08),
+                                                    colors: [
+                                                      Color(0xFF92A3FD),
+                                                      Color(0xFF9DCEFF)
+                                                    ],
+                                                  ),
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            50),
+                                                  ),
+                                                ),
+                                                child: const Text(
+                                                  'Select',
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 12,
+                                                    fontFamily: 'Poppins',
+                                                    fontWeight: FontWeight.w600,
+                                                    height: 0.12,
+                                                  ),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                        Positioned(
+                                            top: 8,
+                                            right: 11,
+                                            child: SvgPicture.asset(
+                                                "assets/bread.svg"))
+                                      ],
+                                    ))
+                              ],
+                            ),
+                          )
+                        ]),
                   )
                 ],
               )),
             )),
       )),
+    );
+  }
+
+  Widget _createItem(String asset, String title) {
+    return Container(
+      height: 190,
+      margin: EdgeInsets.only(right: 15),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 130,
+            height: 130,
+            alignment: Alignment.center,
+            margin: const EdgeInsets.symmetric(vertical: 10),
+            decoration: ShapeDecoration(
+              color: Color(0xFFF7F8F8),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+            ),
+            child: SvgPicture.asset(asset),
+          ),
+          Text(
+            title,
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 12,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w400,
+            ),
+          )
+        ],
+      ),
     );
   }
 
