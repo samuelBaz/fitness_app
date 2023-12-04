@@ -56,7 +56,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           },
         ),
       ),
-      const ProgressPhotoScreen(),
+      ProgressPhotoScreen(),
       const ProfileScreen()
     ];
   }
